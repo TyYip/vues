@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "firebase": "^10.12.2",
+    "vite": "^5.2.12",
+    "vue-router": "^4.0.13"
+  }
+}
