@@ -1,5 +1,6 @@
 <template>
   <div class="bar">
+    <img src="@/assets/images/greenit.png" alt="Greenit" class="greenit" />
     <h2>Login</h2>
     <input v-model="email" type="text" class="search-input" placeholder="Email" />
     <input v-model="password" type="password" class="search-input" placeholder="Password" />
@@ -16,24 +17,27 @@ export default defineComponent({
   setup() {
     const email = ref('');
     const password = ref('');
+    const username = ref('');
 
     const login = async () => {
       try {
-        await signInWithEmailAndPassword(auth, email.value, password.value);
+        const userCredential = await signInWithEmailAndPassword(auth, email.value, password.value);
+        const user = userCredential.user;
+        username.value = user.displayName || '';
         localStorage.setItem('loggedIn', 'true');
-        // Redirect to the menu page upon successful login
         window.location.href = '/menu'; 
       } catch (error) {
         alert('Login failed: ' + error.message);
       }
     };
 
-    return { email, password, login };
+    return { email, password, username, login };
   }
 });
 </script>
 
-<style scoped>
+
+<style>
 .container {
   display: flex;
   justify-content: center;
@@ -51,9 +55,9 @@ export default defineComponent({
 }
 .bar {
   background-image: url("https://i.pinimg.com/originals/73/9a/50/739a50c0b205d23db9cfb3d5b890c543.jpg");
-  background-size: 200px; /* Adjust the size to cover the entire div */
-  background-position: center; /* Center the background image */
-  padding: 450px; /* Add padding for better visibility */
+  background-size: 200px; 
+  background-position: center; 
+  padding: 400px;
 }
 .search-input {
     width: 100%;
@@ -73,5 +77,15 @@ button, .btn {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
+.greenit {
+  position: absolute;
+  top: 30px;
+  left: 60px;
+  padding: 10px 20px;
+  background-color: white;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
 </style>

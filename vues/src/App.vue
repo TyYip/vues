@@ -13,5 +13,5 @@ export default defineComponent({
 </script>
 
 <style>
-/* Add your global styles here */
+
 </style>

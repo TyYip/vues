@@ -16,7 +16,7 @@ const routes = [
     component: Menu
   },
   {
-    path: '/create-server',
+    path: '/servercreation',
     name: 'ServerCreation',
     component: ServerCreation
   },
@@ -29,7 +29,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('/'), // Set the base URL directly
+  history: createWebHistory('/'),
   routes
 })
 
