@@ -21,7 +21,8 @@ export default defineComponent({
       try {
         await signInWithEmailAndPassword(auth, email.value, password.value);
         localStorage.setItem('loggedIn', 'true');
-        window.location.href = '/menu'; // Redirect to the menu page upon successful login
+        // Redirect to the menu page upon successful login
+        window.location.href = '/menu'; 
       } catch (error) {
         alert('Login failed: ' + error.message);
       }

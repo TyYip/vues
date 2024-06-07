@@ -1,6 +1,7 @@
-<!-- src/App.vue -->
 <template>
-  <router-view />
+  <div id="app">
+    <router-view />
+  </div>
 </template>
 
 <script lang="ts">
@@ -12,5 +13,5 @@ export default defineComponent({
 </script>
 
 <style>
-/* Add any global styles here */
+/* Add your global styles here */
 </style>

@@ -6,11 +6,14 @@
         <router-link :to="'/chat/' + server.id">{{ server.name }}</router-link>
       </li>
     </ul>
+    <router-link to="/create-server">
+      <button>Create Server</button>
+    </router-link>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { collection, getDocs } from 'firebase/firestore';
 import { firestore } from '../firebase';
 
@@ -21,13 +24,13 @@ export default defineComponent({
     const loadServers = async () => {
       try {
         const querySnapshot = await getDocs(collection(firestore, 'servers'));
-        servers.value = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        servers.value = querySnapshot.docs.map(doc => ({ id: doc.id, name: doc.data().name }));
       } catch (error) {
         console.error('Error fetching servers:', error);
       }
     };
 
-    onMounted(loadServers);
+    loadServers();
 
     return { servers };
   }
