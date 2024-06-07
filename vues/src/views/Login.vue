@@ -1,6 +1,5 @@
 <template>
   <div class="bar">
-    
     <h2>Login</h2>
     <input v-model="email" type="text" class="search-input" placeholder="Email" />
     <input v-model="password" type="password" class="search-input" placeholder="Password" />
@@ -50,9 +49,10 @@ export default defineComponent({
   align-items: center;
 }
 .bar {
-  position: relative;
-    margin: 20px auto;
-    max-width: 400px;
+  background-image: url("https://i.pinimg.com/originals/73/9a/50/739a50c0b205d23db9cfb3d5b890c543.jpg");
+  background-size: 200px; /* Adjust the size to cover the entire div */
+  background-position: center; /* Center the background image */
+  padding: 450px; /* Add padding for better visibility */
 }
 .search-input {
     width: 100%;
@@ -72,4 +72,5 @@ button, .btn {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 </style>
