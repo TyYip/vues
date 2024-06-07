@@ -3,5 +3,9 @@
     "firebase": "^10.12.2",
     "vite": "^5.2.12",
     "vue-router": "^4.0.13"
-  }
+  },"scripts": {
+  "serve": "vue-cli-service serve",
+  "build": "vue-cli-service build",
+  "lint": "vue-cli-service lint"
+} 
 }
