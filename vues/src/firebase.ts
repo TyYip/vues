@@ -1,18 +1,20 @@
+// src/firebase.ts
 
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCkq7CHIDom6N61QGLhjEUHzvpe8rCOv3U",
-  authDomain: "tynricknvin.firebaseapp.com",
-  databaseURL: "https://tynricknvin-default-rtdb.firebaseio.com",
-  projectId: "tynricknvin",
-  storageBucket: "tynricknvin.appspot.com",
-  messagingSenderId: "384631186929",
-  appId: "1:384631186929:web:db7752f18e88ed963d9050",
-  measurementId: "G-9DQ4DW2WSX"
+  apiKey: process.env.VUE_APP_API_KEY as string,
+  authDomain: process.env.VUE_APP_AUTH_DOMAIN as string,
+  databaseURL: process.env.VUE_APP_DATABASE_URL as string,
+  projectId: process.env.VUE_APP_PROJECT_ID as string,
+  storageBucket: process.env.VUE_APP_STORAGE_BUCKET as string,
+  messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID as string,
+  appId: process.env.VUE_APP_APP_ID as string,
+  measurementId: process.env.VUE_APP_MEASUREMENT_ID as string,
 };
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
